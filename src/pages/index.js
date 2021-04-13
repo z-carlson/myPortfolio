@@ -1,184 +1,272 @@
-import * as React from "react"
+import * as React from "react";
+import styled from "styled-components";
+import Layout from "../components/Layout";
+import DocProjectImage from "../images/docs template.png";
+import HangmanImage from "../images/hangman.png";
+import MemoryImage from "../images/memory.png";
+import GatsbyLogo from "../images/svg/Gatsby_Monogram.png";
+import ReactLogo from "../images/svg/React-icon.svg";
+import GraphQLLogo from "../images/svg/graphql-icon.svg";
+import HTMLLogo from "../images/svg/HTML5_Badge.svg";
+import CSSLogo from "../images/svg/CSS3_logo_and_wordmark.svg";
+import JSLogo from "../images/svg/JavaScript-logo.png";
+import MDXLogo from "../images/svg/mdx.svg";
+import DefaultLogo from "../images/svg/defaultLogo.svg";
 
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-const headingAccentStyles = {
-  color: "#663399",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
-}
-
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
-
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  marginBottom: 24,
-}
-
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
-}
-
-const docLink = {
-  text: "Documentation",
-  url: "https://www.gatsbyjs.com/docs/",
-  color: "#8954A8",
-}
-
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
-
-// data
-const links = [
+const projects = [
   {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/",
+    title: "Docs Site Template",
     description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
+      "I built this example documentation site so it could be used as a starting point for a real docs project. I built this example documentation site so it could be used as a starting point for a real docs project.  ",
+    tech: [
+      { tech: "Gatsby", link: "https://www.gatsbyjs.com/" },
+      { tech: "React", link: "https://reactjs.org/" },
+      { tech: "GraphQL", link: "https://graphql.org/" },
+      { tech: "MDX", link: "https://mdxjs.com/" },
+    ],
+    img: DocProjectImage,
+    codeLink: "https://github.com/z-carlson/docs-site",
+    liveLink: "https://quirky-elion-a4b0b0.netlify.app/",
   },
   {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
+    title: "Memory",
     description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    tech: [
+      {
+        tech: "JavaScript",
+        link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      },
+      {
+        tech: "HTML",
+        link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+      },
+      { tech: "CSS", link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+    ],
+    img: MemoryImage,
+    codeLink: "https://github.com/z-carlson/memory",
+    liveLink: "https://z-carlson.github.io/memory/",
   },
   {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
+    title: "Hangman",
     description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    tech: [{ tech: "React", link: "https://reactjs.org/" }],
+    img: HangmanImage,
+    codeLink: "https://github.com/z-carlson/react-hangman",
+    liveLink: "https://z-carlson.github.io/react-hangman/",
   },
-  {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-    color: "#8EB814",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    badge: true,
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-    color: "#663399",
-  },
-]
+];
 
-// markup
+const ProjectCardStyle = styled.div`
+  background-color: var(--cardColor);
+  padding: 1rem 1rem;
+  margin-bottom: 100px;
+  border-radius: 5px;
+  position: relative;
+  min-height: 450px;
+
+  h3,
+  h5 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .tech-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+
+  .tech {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 10px;
+    background-color: var(--backgroundColor);
+    box-shadow: var(--level1);
+    height: 30px;
+    align-items: center;
+  }
+
+  .tech:hover {
+    box-shadow: var(--level2);
+  }
+
+  .tech-name {
+    color: var(--textColor);
+  }
+
+  .tech-logo {
+    display: block;
+    object-position: center;
+    object-fit: fill;
+    margin-left: 5px;
+    width: 25px;
+    height: 25px;
+    /* background-color: rgba(230, 230, 230, 0.9); */
+  }
+
+  .details {
+    max-width: 60%;
+  }
+
+  .buttons a + a {
+    margin-left: 50px;
+  }
+
+  .buttons {
+    margin: 5rem 0 3rem 0;
+  }
+
+  .buttons a {
+    padding: 1rem 2rem;
+    text-decoration: none;
+    box-shadow: var(--level2);
+    transition: all 0.1s ease-out;
+    background: var(--textColorLight);
+    color: var(--cardButtonsColor);
+  }
+
+  .buttons a:hover {
+    box-shadow: var(--level3);
+  }
+
+  .buttons .live-link {
+    color: var(--textColorLight);
+    background: var(--cardButtonsColor);
+  }
+
+  @media (max-width: 900px) {
+    .details {
+      max-width: 100%;
+    }
+
+    p {
+      margin: 1rem auto;
+    }
+  }
+  @media (max-width: 600px) {
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+`;
+
+const ProjectImageStyle = styled.div`
+  background: var(--silver-light);
+  box-shadow: var(--level1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 43%;
+  height: 500px;
+  position: absolute;
+  right: -40px;
+  top: 20px;
+
+  padding: 1rem;
+
+  img {
+    width: 95%;
+    height: 95%;
+    object-position: center;
+    object-fit: cover;
+  }
+
+  @media (max-width: 900px) {
+    position: relative;
+    width: 100%;
+    top: 0;
+    right: 0;
+    height: 300px;
+
+    img {
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+`;
+
 const IndexPage = () => {
-  return (
-    <main style={pageStyles}>
-      <title>Home Page</title>
-      <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! </span>
-        <span role="img" aria-label="Party popper emojis">
-          🎉🎉🎉
-        </span>
-      </h1>
-      <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-        update in real-time.{" "}
-        <span role="img" aria-label="Sunglasses smiley emoji">
-          😎
-        </span>
-      </p>
-      <ul style={listStyles}>
-        <li style={docLinkStyle}>
-          <a
-            style={linkStyle}
-            href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-          >
-            {docLink.text}
-          </a>
-        </li>
-        {links.map(link => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-            <span>
-              <a
-                style={linkStyle}
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-              >
-                {link.text}
-              </a>
-              {link.badge && (
-                <span style={badgeStyle} aria-label="New Badge">
-                  NEW!
-                </span>
-              )}
-              <p style={descriptionStyle}>{link.description}</p>
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        alt="Gatsby G Logo"
-        src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
-      />
-    </main>
-  )
-}
+  const getIcon = (tech) => {
+    switch (tech) {
+      case "Gatsby":
+        return GatsbyLogo;
+      case "React":
+        return ReactLogo;
+      case "GraphQL":
+        return GraphQLLogo;
+      case "MDX":
+        return MDXLogo;
+      case "JavaScript":
+        return JSLogo;
+      case "HTML":
+        return HTMLLogo;
+      case "CSS":
+        return CSSLogo;
+      default:
+        return DefaultLogo;
+    }
+  };
 
-export default IndexPage
+  return (
+    <>
+      <Layout>
+        <main>
+          <title>Home Page</title>
+          <h1>Hello</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <h2>Recent Projects</h2>
+          {projects.map((project, index) => {
+            return (
+              <ProjectCardStyle key={index}>
+                <div className="details">
+                  <h3>{project.title}</h3>
+                  <ProjectImageStyle>
+                    <img src={project.img} alt="test" />
+                  </ProjectImageStyle>
+                  <p>{project.description}</p>
+                  <div className="tech-list">
+                    {project.tech.map((tech, index) => {
+                      return (
+                        <div key={index}>
+                          <a className="tech" href={tech.link}>
+                            <img
+                              className="tech-logo"
+                              src={getIcon(tech.tech)}
+                            />
+                            <span className="tech-name">{tech.tech}</span>
+                          </a>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <div className="buttons">
+                    <a className="live-link" href={project.liveLink}>
+                      Live Site
+                    </a>
+                    <a className="source-link" href={project.codeLink}>
+                      View Source
+                    </a>
+                  </div>
+                </div>
+              </ProjectCardStyle>
+            );
+          })}
+        </main>
+      </Layout>
+    </>
+  );
+};
+
+export default IndexPage;

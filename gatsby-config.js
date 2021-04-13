@@ -1,13 +1,16 @@
 module.exports = {
   siteMetadata: {
-    title: "new-portfolio",
+    title: "Zachary Carlson's Portfolio",
+    description: "The personal website of Zachary Carlson",
   },
   plugins: [
     "gatsby-plugin-styled-components",
+    "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-mdx",
     "gatsby-transformer-sharp",
+
     {
       resolve: "gatsby-source-filesystem",
       options: {
