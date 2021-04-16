@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: "Zachary Carlson's Portfolio",
+    title: "Zachary Carlson",
+    siteUrl: "http://www.zachary-carlson.com",
     description: "The personal website of Zachary Carlson",
   },
   plugins: [

@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { ThemeContext } from "../context/ThemeContext";
 
-export default function SEO({ children, location, description, title, image }) {
+export default function SEO({ location, description, title, image }) {
   const { site } = useStaticQuery(graphql`
     query {
       site {
@@ -15,10 +15,10 @@ export default function SEO({ children, location, description, title, image }) {
     }
   `);
 
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <Helmet>
+    <Helmet titleTemplate={`%s - ${site.siteMetadata.title}`}>
       <html lang="en" />
       <title>{title}</title>
       {/* Fav Icons */}

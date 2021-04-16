@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Layout from "../components/Layout";
+import SEO from "../components/SEO";
 
 const ContactChannelStyles = styled.div`
   color: var(--textColorDark);
@@ -26,29 +27,32 @@ const ContactChannelStyles = styled.div`
 
 const ContactPage = () => {
   return (
-    <Layout>
-      <main id="contact-page">
-        <h1>Get in touch</h1>
-        <ContactChannelStyles>
-          <span>Email</span>
-          <a href="mailto:connect@zachary-carlson.com?subject=Job Opportunity&body=Hi Zac, ">
-            <span>connect@zachary-carlson.com</span>
-          </a>
-        </ContactChannelStyles>
-        <ContactChannelStyles>
-          <span>Github</span>
-          <a href="https://github.com/z-carlson">
-            <span>https://github.com/z-carlson</span>
-          </a>
-        </ContactChannelStyles>
-        <ContactChannelStyles>
-          <span>linkedin</span>
-          <a href="https://www.linkedin.com/in/carlsonzachary">
-            <span>linkedin.com/in/carlsonzachary</span>
-          </a>
-        </ContactChannelStyles>
-      </main>
-    </Layout>
+    <>
+      <SEO title="Contact" />
+      <Layout>
+        <main id="contact-page">
+          <h1>Get in touch</h1>
+          <ContactChannelStyles>
+            <span>Email</span>
+            <a href="mailto:connect@zachary-carlson.com?subject=Job Opportunity&body=Hi Zac, ">
+              <span>connect@zachary-carlson.com</span>
+            </a>
+          </ContactChannelStyles>
+          <ContactChannelStyles>
+            <span>Github</span>
+            <a href="https://github.com/z-carlson">
+              <span>https://github.com/z-carlson</span>
+            </a>
+          </ContactChannelStyles>
+          <ContactChannelStyles>
+            <span>linkedin</span>
+            <a href="https://www.linkedin.com/in/carlsonzachary">
+              <span>linkedin.com/in/carlsonzachary</span>
+            </a>
+          </ContactChannelStyles>
+        </main>
+      </Layout>
+    </>
   );
 };
 

@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Layout from "../components/Layout";
-import devIcon from "../images/svg/code.svg";
-import designIcon from "../images/svg/pen.svg";
-import writeIcon from "../images/svg/paper.svg";
+import SEO from "../components/SEO";
 
 const experience = [
   {
@@ -146,7 +144,7 @@ const SkillZone = styled.div`
     width: 396px;
     height: 374px;
     position: relative;
-    color: var(--textColorLight);
+    color: var(--textColor);
   }
 
   .skill-diagram div {
@@ -253,6 +251,12 @@ const ResumePage = () => {
     console.log(skill);
   };
 
+  const handleSkillKeydown = (e) => {
+    if (e.key === "Enter") {
+      handleSkillClick(e);
+    }
+  };
+
   const getClasses = (cat) => {
     if (skill === "me") return;
 
@@ -268,138 +272,210 @@ const ResumePage = () => {
 
   return (
     <>
+      <SEO title={"Resume"} />
+
       <Layout>
         <main id="resume-page">
           <title>Resume</title>
           <h1>Resume</h1>
-          <h2>Skills</h2>
-          <SkillZone>
-            <div className="skill-diagram">
-              <div id="me-circle" data-category="me" onClick={handleSkillClick}>
-                Me
+          <section>
+            <h2>Skills</h2>
+            <SkillZone>
+              <div className="skill-diagram">
+                <div
+                  id="me-circle"
+                  data-category="me"
+                  onClick={handleSkillClick}
+                  onKeyDown={handleSkillKeydown}
+                  tabIndex="0"
+                  role="button"
+                >
+                  Me
+                </div>
+                <div
+                  id="dev-circle"
+                  data-category="dev"
+                  onClick={handleSkillClick}
+                  onKeyDown={handleSkillKeydown}
+                  className={getClasses("dev")}
+                  tabIndex="0"
+                  role="button"
+                >
+                  Developer
+                </div>
+                <div
+                  id="design-circle"
+                  data-category="designer"
+                  onClick={handleSkillClick}
+                  onKeyDown={handleSkillKeydown}
+                  className={getClasses("designer")}
+                  tabIndex="0"
+                  role="button"
+                >
+                  Designer
+                </div>
+                <div
+                  id="writer-circle"
+                  data-category="writer"
+                  onClick={handleSkillClick}
+                  onKeyDown={handleSkillKeydown}
+                  className={getClasses("writer")}
+                  tabIndex="0"
+                  role="button"
+                >
+                  Writer
+                </div>
               </div>
-              <div
-                id="dev-circle"
-                data-category="dev"
-                onClick={handleSkillClick}
-                className={getClasses("dev")}
-              >
-                Developer
+              <div className="skill-description">
+                {skill === "me" ? (
+                  <div id="me-desc" data-category="me">
+                    <span className="desc-heading">Me</span>
+                    <p>
+                      I'm a front-end developer, designer, and technical writer
+                      with experience working for small, mission-driven
+                      nonprofits and large, global companies.
+                    </p>
+                    <p>
+                      Select a skill to see what kinds of experience I have in
+                      that area.
+                    </p>
+                  </div>
+                ) : (
+                  ""
+                )}
+
+                {skill === "dev" ? (
+                  <div id="dev-desc" data-category="dev">
+                    <span className="desc-heading">Developer</span>
+                    <p>
+                      I am a self-taught developer who loves learning and is
+                      looking to take the next step in my development career. I
+                      was a UI/UX designer first, but I wanted to move past
+                      prototyping and start building.
+                    </p>
+                    <p>
+                      I love working with React, Gatsby, Sanity.io and good old
+                      JavaScript, HTML, and CSS. I’m looking for a role where I
+                      can collaborate closely on a team and where I can continue
+                      to learn every day.
+                    </p>
+                  </div>
+                ) : (
+                  ""
+                )}
+
+                {skill === "designer" ? (
+                  <div id="designer-desc" data-category="designer">
+                    <span className="desc-heading">Designer</span>
+                    <p>
+                      I bring a human-centered design approach to all my work.
+                      Whether I’m designing a UI, writing a help guide, or
+                      re-organizing a website, I try to understand the users and
+                      their goals, develop and iterate possible solutions, and
+                      evaluate the solution I’ve implemented.
+                    </p>
+                    <p>
+                      Some of the methods I've used to understand users and
+                      evaluate solutions include ...
+                    </p>
+                    <ul>
+                      <li>Contextual interviewing &amp; usability testing</li>
+                      <li>Card sorting &amp; tree testing studies</li>
+                      <li>
+                        Task and user analysis to develop journey maps and
+                        design personas
+                      </li>
+                      <li>Surveys &amp; focus groups</li>
+                    </ul>
+                    <p>
+                      When I'm designing prototypes and mock ups, I like to use
+                      ...
+                    </p>
+                    <ul>
+                      <li>Figma</li>
+                      <li>Adobe Illustrator and Photoshop</li>
+                      <li>Pencil and paper</li>
+                    </ul>
+                  </div>
+                ) : (
+                  ""
+                )}
+
+                {skill === "writer" ? (
+                  <div id="writer-desc" data-category="writer">
+                    <span className="desc-heading">Writer</span>
+                    <p>
+                      As a technical writer and user content designer, it’s my
+                      job to simplify complex concepts and processes.
+                    </p>
+                    <p>
+                      I’ve written tutorials, how-to guides, and reference
+                      documentation and created videos and documentation
+                      websites. My favorite part of working in technical
+                      communication is acting as an advocate for the customer by
+                      pushing for cleaner, more intuitive software that calls
+                      for less external documentation.
+                    </p>
+                    <p>
+                      I treat technical communication and instructional design
+                      just like my other work. I start by understanding users
+                      and their goals then figure out the best way to help them
+                      solve their problems. Sometimes that is a short reference
+                      document or explanatory illustration or video clip, and
+                      sometimes it means petitioning for a fix in the product.
+                    </p>
+                  </div>
+                ) : (
+                  ""
+                )}
               </div>
-              <div
-                id="design-circle"
-                data-category="designer"
-                onClick={handleSkillClick}
-                className={getClasses("designer")}
-              >
-                Designer
-              </div>
-              <div
-                id="writer-circle"
-                data-category="writer"
-                onClick={handleSkillClick}
-                className={getClasses("writer")}
-              >
-                Writer
-              </div>
-            </div>
-            <div className="skill-description">
-              {skill === "me" ? (
-                <div id="me-desc" data-category="me">
-                  <span className="desc-heading">Me</span>
-                  <p>I'm a developer, designer, and technical writer. </p>
-                  <p>
-                    Click a skill to see what kinds of experience I have in that
-                    area.
-                  </p>
-                </div>
-              ) : (
-                ""
-              )}
+            </SkillZone>
+          </section>
+          <section>
+            <h2>Experience</h2>
+            {experience.map((job, id) => {
+              return (
+                <ExperienceStyles key={id}>
+                  <div className="place-date">
+                    <span className="employer">{job.employer}</span>
+                    <span className="dates"> {job.dates}</span>
+                  </div>
 
-              {skill === "dev" ? (
-                <div id="dev-desc" data-category="dev">
-                  <span className="desc-heading">Developer</span>
-                  <p>I am a front-end JavaScript developer. </p>
-                </div>
-              ) : (
-                ""
-              )}
-
-              {skill === "designer" ? (
-                <div id="designer-desc" data-category="designer">
-                  <span className="desc-heading">Designer</span>
-                  <p>
-                    I bring a human-centered design approach to all my work.
-                    User experience design and research. I like to design user
-                    interfaces and experiences.
-                  </p>
-                  <p>Some of the research methods I've used:</p>
-                  <ul>
-                    <li>Card sorting</li>
-                    <li>Tree testing</li>
-                    <li>Contextual interviewing</li>
-                  </ul>
-                  <p>
-                    When designing prototypes and mock ups, I like to use ...
-                  </p>
-                  <ul>
-                    <li>Figma</li>
-                    <li>Adobe Illustrator and Photoshop</li>
-                  </ul>
-                </div>
-              ) : (
-                ""
-              )}
-
-              {skill === "writer" ? (
-                <div id="writer-desc" data-category="writer">
-                  <span className="desc-heading">Writer</span>
-                  <p>I make words good </p>
-                </div>
-              ) : (
-                ""
-              )}
-            </div>
-          </SkillZone>
-
-          <h2>Experience</h2>
-          {experience.map((job, id) => {
-            return (
-              <ExperienceStyles key={id}>
-                <div className="place-date">
-                  <span className="employer">{job.employer}</span>
-                  <span className="dates"> {job.dates}</span>
-                </div>
-
-                <span className="title">{job.title}</span>
-              </ExperienceStyles>
-            );
-          })}
-          <h2>Education</h2>
-          {education.map((school, id) => {
-            return (
-              <EducationStyles key={id}>
-                <span className="school">{school.school}</span>
-                <span className="grad-date">Graduated: {school.gradDate}</span>
-                <span className="degree-program">{school.degree}</span>
-              </EducationStyles>
-            );
-          })}
-          <h2>Continued Learning</h2>
-          <p>
-            I love learning and am always looking for new topics to explore.
-            Here are some of the recent online courses I've completed.
-          </p>
-          {continuedLearning.map((course, id) => {
-            return (
-              <ContinuedLearningStyles key={id}>
-                <a href={course.url}>
-                  <span>{course.course}</span> | <span>{course.source}</span>
-                </a>
-              </ContinuedLearningStyles>
-            );
-          })}
+                  <span className="title">{job.title}</span>
+                </ExperienceStyles>
+              );
+            })}
+          </section>
+          <section>
+            <h2>Education</h2>
+            {education.map((school, id) => {
+              return (
+                <EducationStyles key={id}>
+                  <span className="school">{school.school}</span>
+                  <span className="grad-date">
+                    Graduated: {school.gradDate}
+                  </span>
+                  <span className="degree-program">{school.degree}</span>
+                </EducationStyles>
+              );
+            })}
+          </section>
+          <section>
+            <h2>Continued Learning</h2>
+            <p>
+              I love learning and am always looking for new topics to explore.
+              Here are some of the recent online courses I've completed.
+            </p>
+            {continuedLearning.map((course, id) => {
+              return (
+                <ContinuedLearningStyles key={id}>
+                  <a href={course.url}>
+                    <span>{course.course}</span> | <span>{course.source}</span>
+                  </a>
+                </ContinuedLearningStyles>
+              );
+            })}
+          </section>
         </main>
       </Layout>
     </>

@@ -49,10 +49,13 @@
   --softAccent: var(--misty-rose-dark);
   --linkHoverColor: var(--gold-crayola-dark);
 
+  --headerColor: var(--darkBackgroundColor);
+  --headerTextColor: var(--textColorLight);
+
   /* Type */
   --baseFontSize: 100%;
   --headingFonts: "Poppins", sans-serif;
-  --bodyFonts: "Anonymous Pro", monospace;
+  --bodyFonts: "Poppins", sans-serif;
   --smallText: 0.75rem;
   --h1: 4.209rem;
   --h2: 3.157rem;
@@ -132,8 +135,8 @@ small,
 }
 
 header {
-  background-color: var(--darkBackgroundColor);
-  color: var(--textColorLight);
+  background-color: var(--headerColor);
+  color: var(--headerTextColor);
   padding: 2.5rem 1rem 1rem 1rem;
   display: flex;
   justify-content: space-between;
@@ -147,7 +150,7 @@ header nav a + a {
 }
 
 header a {
-  color: var(--textColorLight);
+  color: var(--headerTextColor);
   text-decoration: none;
 }
 
@@ -163,8 +166,8 @@ a:hover {
 }
 
 footer {
-  background-color: var(--darkBackgroundColor);
-  color: var(--textColorLight);
+  background-color: var(--headerColor);
+  color: var(--headerTextColor);
   padding: 1rem;
   display: flex;
   justify-content: space-around;
@@ -221,10 +224,12 @@ body,
   --textColor: white;
   --textColorLight: black;
   --darkBackgroundColor: var(--misty-rose-light);
-  --cardColor: var(--battleship-grey-dark);
+  --cardColor: hsl(271deg 6% 20%);
   --cardButtonsColor: lightgray;
   --softAccent: var(--misty-rose-dark);
   --linkHoverColor: var(--gold-crayola-dark);
+  --headerColor: hsl(271deg 6% 10%);
+  --headerTextColor: var(--misty-rose-light);
 }
 
 .retrowave {
@@ -243,6 +248,30 @@ body,
   --softAccent: var(--pink);
   --linkHoverColor: var(--teal);
 
+  --headerColor: var(--purple-dark);
+  --headerTextColor: var(--yellow);
+
   --headingFonts: "Train One", cursive;
   --bodyFonts: "Inconsolata", monospace;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+.hack3r {
+  --green: rgb(0, 235, 20);
+  --black: rgb(29, 29, 29);
+
+  --backgroundColor: var(--black);
+  --textColor: var(--green);
+  --textColorLight: var(--green);
+  --darkBackgroundColor: var(--black);
+  --cardColor: rgb(47, 56, 45);
+  --cardButtonsColor: var(--black);
+  --softAccent: var(--green);
+  --linkHoverColor: yellow;
+
+  --headerColor: var(--black);
+  --headerTextColor: var(--green);
+
+  --headingFonts: "Space Mono", monospace;
+  --bodyFonts: "Space Mono", monospace;
 }

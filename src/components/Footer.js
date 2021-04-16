@@ -1,6 +1,5 @@
 import React from "react";
 import GitHubLogo from "../images/GitHub-Mark-64px.png";
-import CodePenLogo from "../images/codepen logo black.png";
 import LinkedInLogo from "../images/LI-In-Bug black.png";
 import styled from "styled-components";
 
@@ -21,14 +20,11 @@ const Footer = () => {
   return (
     <FooterStyles>
       <a href="https://github.com/z-carlson">
-        <img src={GitHubLogo} />
+        <img alt="github logo" src={GitHubLogo} />
       </a>
-      {/* <a href="">
 
-      <img src={CodePenLogo} />
-      </a> */}
       <a href="https://www.linkedin.com/in/carlsonzachary">
-        <img src={LinkedInLogo} />
+        <img alt="LinkedIn logo" src={LinkedInLogo} />
       </a>
     </FooterStyles>
   );

@@ -12,6 +12,7 @@ import CSSLogo from "../images/svg/CSS3_logo_and_wordmark.svg";
 import JSLogo from "../images/svg/JavaScript-logo.png";
 import MDXLogo from "../images/svg/mdx.svg";
 import DefaultLogo from "../images/svg/defaultLogo.svg";
+import SEO from "../components/SEO";
 
 const projects = [
   {
@@ -31,7 +32,7 @@ const projects = [
   {
     title: "Memory",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "I built this simple web version of the game Memory as a way to learn about using LocalStorage and SessionStorage. This framework-free implementation of the game uses randomly selected images from Unsplash and is different every time you play.",
     tech: [
       {
         tech: "JavaScript",
@@ -50,7 +51,7 @@ const projects = [
   {
     title: "Hangman",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "This version of hangman was built as a personal project when I was first learning to use React. The words come from the Owlbot dictionary api.",
     tech: [{ tech: "React", link: "https://reactjs.org/" }],
     img: HangmanImage,
     codeLink: "https://github.com/z-carlson/react-hangman",
@@ -213,24 +214,27 @@ const IndexPage = () => {
 
   return (
     <>
+      <SEO title={"Home"} />
+
       <Layout>
         <main>
           <title>Home Page</title>
           <h1>Hello</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            I am a front-end developer, UX/UI designer, and technical
+            communicator. I bring a human-centered design approach to all my
+            work by first learning about the user, iterating on possible
+            solutions, and then evaluating my success.
+          </p>
+          <p>
+            I’m looking for a web development role where I can collaborate
+            closely with a team and continue to learn every day.
           </p>
           <h2>Recent Projects</h2>
           {projects.map((project, index) => {
             return (
               <ProjectCardStyle key={index}>
-                <div className="details">
+                <article className="details">
                   <h3>{project.title}</h3>
                   <ProjectImageStyle>
                     <img src={project.img} alt="test" />
@@ -242,6 +246,7 @@ const IndexPage = () => {
                         <div key={index}>
                           <a className="tech" href={tech.link}>
                             <img
+                              alt={tech.tech}
                               className="tech-logo"
                               src={getIcon(tech.tech)}
                             />
@@ -259,7 +264,7 @@ const IndexPage = () => {
                       View Source
                     </a>
                   </div>
-                </div>
+                </article>
               </ProjectCardStyle>
             );
           })}

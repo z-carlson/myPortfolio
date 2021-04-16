@@ -2,13 +2,22 @@ import { Link } from "gatsby";
 import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { ThemeContext } from "../context/ThemeContext";
+import TerminalIcon from "../images/svg/terminal.svg";
+import SunIcon from "../images/svg/sun.svg";
+import MoonIcon from "../images/svg/moon.svg";
+import ToolIcon from "../images/svg/tool.svg";
 
 const ThemePicker = styled.div`
   position: absolute;
   right: 20px;
   top: 10px;
 
-  &:hover {
+  button {
+    background: none;
+    border: none;
+  }
+
+  button:hover {
     cursor: pointer;
   }
 `;
@@ -16,6 +25,7 @@ const ThemePicker = styled.div`
 const ThemeOptions = styled.div`
   position: absolute;
   background-color: var(--cardColor);
+  color: var(--textColor);
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -28,6 +38,31 @@ const ThemeOptions = styled.div`
 
   &:hover {
     cursor: auto;
+  }
+
+  button {
+    background: none;
+    border: none;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+
+  button:nth-child(1) {
+    transform: translateX(-80px);
+  }
+
+  button:nth-child(2) {
+    transform: translateX(-60px) translateY(40px);
+  }
+
+  button:nth-child(3) {
+    transform: translateX(-20px) translateY(60px);
   }
 
   span {
@@ -62,33 +97,41 @@ const Header = () => {
 
   let [showOptions, setShown] = useState(defaultState);
 
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { setTheme } = useContext(ThemeContext);
 
-  console.log(theme);
+  function handleMouseOut() {
+    setShown({
+      ...showOptions,
+      transform: "scale(0)",
+      top: -100,
+      right: -100,
+    });
+  }
 
   return (
     <header>
       <ThemePicker
         onClick={() => setShown({ ...showOptions, transform: "scale(1.5)" })}
       >
-        <span>💡</span>
+        <button>
+          <img src={ToolIcon} alt="open themes" />
+        </button>
         <ThemeOptions
           show={showOptions.show}
           scale={showOptions.transform}
           top={showOptions.top}
           right={showOptions.right}
-          onMouseLeave={() =>
-            setShown({
-              ...showOptions,
-              transform: "scale(0)",
-              top: -100,
-              right: -100,
-            })
-          }
+          onMouseLeave={handleMouseOut}
         >
-          <span onClick={() => setTheme("light")}>🌞</span>
-          <span onClick={() => setTheme("dark")}>🌑</span>
-          <span onClick={() => setTheme("retrowave")}>🎉</span>
+          <button onClick={() => setTheme("light")}>
+            <img src={SunIcon} alt="light theme" />
+          </button>
+          <button onClick={() => setTheme("dark")}>
+            <img src={MoonIcon} alt="dark theme" />
+          </button>
+          <button onClick={() => setTheme("hack3r")}>
+            <img src={TerminalIcon} alt="hacker theme" />
+          </button>
         </ThemeOptions>
       </ThemePicker>
       <Link to={"/"}>
