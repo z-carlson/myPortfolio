@@ -1,13 +1,5 @@
 ## TODO:
 
-## MVP
-
-- clean up HTML
-- Build and run lighthouse
-
-## Longer term
-
-- Create some blog posts
-- Add animations
-- Make things a little fancier
--
+- Write some blog posts!
+- Add some fun animations!
+- Maybe sound effects would be amusing
