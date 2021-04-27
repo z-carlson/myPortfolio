@@ -28,6 +28,8 @@ const ContactChannelStyles = styled.div`
 const ContactPage = () => {
   return (
     <>
+      <SEO title={'Contact'} />
+
       <Layout>
         <main id="contact-page">
           <h1>Get in touch</h1>
