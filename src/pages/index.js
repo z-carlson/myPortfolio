@@ -19,7 +19,7 @@ const projects = [
   {
     title: 'Docs Site Template',
     description:
-      'I built this example documentation site so it could be used as a starting point for a real docs project. I built this example documentation site so it could be used as a starting point for a real docs project.  ',
+      'After bumping into some of the limitations of the software I was using (e.g., Flare and FrameMaker), I decided to see what it would take to build docs with tools I love, like Gatsby, React, and markdown. This example documentation site was meant to be an experiment and a starting point for a real docs project. ',
     tech: [
       { tech: 'Gatsby', link: 'https://www.gatsbyjs.com/' },
       { tech: 'React', link: 'https://reactjs.org/' },
