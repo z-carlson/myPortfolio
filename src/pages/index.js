@@ -1,61 +1,62 @@
-import * as React from "react";
-import styled from "styled-components";
-import Layout from "../components/Layout";
-import DocProjectImage from "../images/docs template.png";
-import HangmanImage from "../images/hangman.png";
-import MemoryImage from "../images/memory.png";
-import GatsbyLogo from "../images/svg/Gatsby_Monogram.png";
-import ReactLogo from "../images/svg/React-icon.svg";
-import GraphQLLogo from "../images/svg/graphql-icon.svg";
-import HTMLLogo from "../images/svg/HTML5_Badge.svg";
-import CSSLogo from "../images/svg/CSS3_logo_and_wordmark.svg";
-import JSLogo from "../images/svg/JavaScript-logo.png";
-import MDXLogo from "../images/svg/mdx.svg";
-import DefaultLogo from "../images/svg/defaultLogo.svg";
-import SEO from "../components/SEO";
+import * as React from 'react';
+import styled from 'styled-components';
+import Layout from '../components/Layout';
+import DocProjectImage from '../images/docs template.png';
+import HangmanImage from '../images/hangman.png';
+import MemoryImage from '../images/memory.png';
+import GatsbyLogo from '../images/svg/Gatsby_Monogram.png';
+import ReactLogo from '../images/svg/React-icon.svg';
+import GraphQLLogo from '../images/svg/graphql-icon.svg';
+import HTMLLogo from '../images/svg/HTML5_Badge.svg';
+import CSSLogo from '../images/svg/CSS3_logo_and_wordmark.svg';
+import JSLogo from '../images/svg/JavaScript-logo.png';
+import MDXLogo from '../images/svg/mdx.svg';
+import DefaultLogo from '../images/svg/defaultLogo.svg';
+import SEO from '../components/SEO';
+import MyFace from '../images/web-profile-bw.png';
 
 const projects = [
   {
-    title: "Docs Site Template",
+    title: 'Docs Site Template',
     description:
-      "I built this example documentation site so it could be used as a starting point for a real docs project. I built this example documentation site so it could be used as a starting point for a real docs project.  ",
+      'I built this example documentation site so it could be used as a starting point for a real docs project. I built this example documentation site so it could be used as a starting point for a real docs project.  ',
     tech: [
-      { tech: "Gatsby", link: "https://www.gatsbyjs.com/" },
-      { tech: "React", link: "https://reactjs.org/" },
-      { tech: "GraphQL", link: "https://graphql.org/" },
-      { tech: "MDX", link: "https://mdxjs.com/" },
+      { tech: 'Gatsby', link: 'https://www.gatsbyjs.com/' },
+      { tech: 'React', link: 'https://reactjs.org/' },
+      { tech: 'GraphQL', link: 'https://graphql.org/' },
+      { tech: 'MDX', link: 'https://mdxjs.com/' },
     ],
     img: DocProjectImage,
-    codeLink: "https://github.com/z-carlson/docs-site",
-    liveLink: "https://quirky-elion-a4b0b0.netlify.app/",
+    codeLink: 'https://github.com/z-carlson/docs-site',
+    liveLink: 'https://quirky-elion-a4b0b0.netlify.app/',
   },
   {
-    title: "Memory",
+    title: 'Memory',
     description:
-      "I built this simple web version of the game Memory as a way to learn about using LocalStorage and SessionStorage. This framework-free implementation of the game uses randomly selected images from Unsplash and is different every time you play.",
+      'I built this simple web version of the game Memory as a way to learn about using LocalStorage and SessionStorage. This framework-free implementation of the game uses randomly selected images from Unsplash and is different every time you play.',
     tech: [
       {
-        tech: "JavaScript",
-        link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+        tech: 'JavaScript',
+        link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
       },
       {
-        tech: "HTML",
-        link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+        tech: 'HTML',
+        link: 'https://developer.mozilla.org/en-US/docs/Web/HTML',
       },
-      { tech: "CSS", link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+      { tech: 'CSS', link: 'https://developer.mozilla.org/en-US/docs/Web/CSS' },
     ],
     img: MemoryImage,
-    codeLink: "https://github.com/z-carlson/memory",
-    liveLink: "https://z-carlson.github.io/memory/",
+    codeLink: 'https://github.com/z-carlson/memory',
+    liveLink: 'https://z-carlson.github.io/memory/',
   },
   {
-    title: "Hangman",
+    title: 'Hangman',
     description:
-      "This version of hangman was built as a personal project when I was first learning to use React. The words come from the Owlbot dictionary api.",
-    tech: [{ tech: "React", link: "https://reactjs.org/" }],
+      'This version of hangman was built as a personal project when I was first learning to use React. The words come from the Owlbot dictionary api.',
+    tech: [{ tech: 'React', link: 'https://reactjs.org/' }],
     img: HangmanImage,
-    codeLink: "https://github.com/z-carlson/react-hangman",
-    liveLink: "https://z-carlson.github.io/react-hangman/",
+    codeLink: 'https://github.com/z-carlson/react-hangman',
+    liveLink: 'https://z-carlson.github.io/react-hangman/',
   },
 ];
 
@@ -190,22 +191,43 @@ const ProjectImageStyle = styled.div`
   }
 `;
 
+const IntroStyles = styled.section`
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+
+  .my-face img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+  }
+
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+
+    .my-face {
+      display: none;
+    }
+  }
+`;
+
 const IndexPage = () => {
   const getIcon = (tech) => {
     switch (tech) {
-      case "Gatsby":
+      case 'Gatsby':
         return GatsbyLogo;
-      case "React":
+      case 'React':
         return ReactLogo;
-      case "GraphQL":
+      case 'GraphQL':
         return GraphQLLogo;
-      case "MDX":
+      case 'MDX':
         return MDXLogo;
-      case "JavaScript":
+      case 'JavaScript':
         return JSLogo;
-      case "HTML":
+      case 'HTML':
         return HTMLLogo;
-      case "CSS":
+      case 'CSS':
         return CSSLogo;
       default:
         return DefaultLogo;
@@ -214,22 +236,28 @@ const IndexPage = () => {
 
   return (
     <>
-      <SEO title={"Home"} />
+      <SEO title={'Home'} />
 
       <Layout>
         <main>
-          <title>Home Page</title>
-          <h1>Hello</h1>
-          <p>
-            I am a front-end developer, UX/UI designer, and technical
-            communicator. I bring a human-centered design approach to all my
-            work by first learning about the user, iterating on possible
-            solutions, and then evaluating my success.
-          </p>
-          <p>
-            I’m looking for a web development role where I can collaborate
-            closely with a team and continue to learn every day.
-          </p>
+          <IntroStyles>
+            <div className="intro-text">
+              <h1>Hello.</h1>
+              <p>
+                I'm Zachary Carlson, and I am a front-end developer, UX/UI
+                designer, and technical communicator. I bring a human-centered
+                design approach to all my work by first learning about the user,
+                iterating on possible solutions, and then evaluating my success.
+              </p>
+              <p>
+                I’m looking for a web development role where I can collaborate
+                closely with a team and continue to learn every day.
+              </p>
+            </div>
+            <div className="my-face">
+              <img src={MyFace} alt="my headshot" />
+            </div>
+          </IntroStyles>
           <h2>Recent Projects</h2>
           {projects.map((project, index) => {
             return (

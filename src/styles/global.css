@@ -1,7 +1,7 @@
 /* imports */
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Poppins:wght@300;400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inconsolata&family=Train+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Poppins:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Train+One&display=swap');
 
 /* Custom Properties */
 
@@ -54,8 +54,8 @@
 
   /* Type */
   --baseFontSize: 100%;
-  --headingFonts: "Poppins", sans-serif;
-  --bodyFonts: "Poppins", sans-serif;
+  --headingFonts: 'Poppins', sans-serif;
+  --bodyFonts: 'Poppins', sans-serif;
   --smallText: 0.75rem;
   --h1: 4.209rem;
   --h2: 3.157rem;
@@ -73,6 +73,7 @@
 html {
   font-size: var(--baseFontSize);
   box-sizing: border-box;
+  overflow-x: hidden;
 } /*16px*/
 
 *,
@@ -251,11 +252,11 @@ body,
   --headerColor: var(--purple-dark);
   --headerTextColor: var(--yellow);
 
-  --headingFonts: "Train One", cursive;
-  --bodyFonts: "Inconsolata", monospace;
+  --headingFonts: 'Train One', cursive;
+  --bodyFonts: 'Inconsolata', monospace;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
 .hack3r {
   --green: rgb(0, 235, 20);
   --black: rgb(29, 29, 29);
@@ -272,6 +273,6 @@ body,
   --headerColor: var(--black);
   --headerTextColor: var(--green);
 
-  --headingFonts: "Space Mono", monospace;
-  --bodyFonts: "Space Mono", monospace;
+  --headingFonts: 'Space Mono', monospace;
+  --bodyFonts: 'Space Mono', monospace;
 }

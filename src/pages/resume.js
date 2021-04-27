@@ -1,84 +1,84 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 
 const experience = [
   {
-    employer: "Thermo Fisher Scientific",
-    title: "User Content Designer",
-    dates: "Jan. 2019 - Present",
+    employer: 'Thermo Fisher Scientific',
+    title: 'User Content Designer',
+    dates: 'Jan. 2019 - Present',
   },
   {
-    employer: "Sundial Software Corporation",
-    title: "Technical Writer, Contracted to Thermo Fisher Scientific",
-    dates: "Sept 2018 - Jan 2019",
+    employer: 'Sundial Software Corporation',
+    title: 'Technical Writer, Contracted to Thermo Fisher Scientific',
+    dates: 'Sept 2018 - Jan 2019',
   },
   {
-    employer: "Google, Inc",
-    title: "Technical Writer Intern",
-    dates: "June 2017 - Aug. 2017",
+    employer: 'Google, Inc',
+    title: 'Technical Writer Intern',
+    dates: 'June 2017 - Aug. 2017',
   },
   {
-    employer: "Wisconsin Academy of Sciences, Arts & Letters",
-    title: "Digital Content Editor",
-    dates: "May 2015 - June 2016",
+    employer: 'Wisconsin Academy of Sciences, Arts & Letters',
+    title: 'Digital Content Editor',
+    dates: 'May 2015 - June 2016',
   },
   {
-    employer: "Wisconsin Academy of Sciences, Arts & Letters",
-    title: "Digial Editor Intern",
-    dates: "June 2015 - May 2015",
+    employer: 'Wisconsin Academy of Sciences, Arts & Letters',
+    title: 'Digial Editor Intern',
+    dates: 'June 2015 - May 2015',
   },
 ];
 
 const education = [
   {
-    school: "Carnegie Mellon University",
-    gradDate: "December 2017",
-    degree: "Master of Arts in Professional Writing",
+    school: 'Carnegie Mellon University',
+    gradDate: 'December 2017',
+    degree: 'Master of Arts in Professional Writing',
   },
   {
-    school: "University of Wisconsin-Whitewater",
-    gradDate: "December 2015",
-    degree: "Bachelor of Arts in Professional Writing and Publishing",
+    school: 'University of Wisconsin-Whitewater',
+    gradDate: 'December 2015',
+    degree: 'Bachelor of Arts in Professional Writing and Publishing',
   },
 ];
 
 const continuedLearning = [
   {
-    source: "Wes Bos",
-    course: "Master Gatsby",
-    url: "www.mastergatsby.com",
+    source: 'Wes Bos',
+    course: 'Master Gatsby',
+    url: 'www.mastergatsby.com',
   },
   {
-    source: "Interaction Design Foundation",
-    course: "Web Design for Usability",
+    source: 'Interaction Design Foundation',
+    course: 'Web Design for Usability',
     url:
-      "https://www.interaction-design.org/zachary-carlson/certificate/course/fltqnHSHvXsBrQpNxg?certificateType=course",
+      'https://www.interaction-design.org/zachary-carlson/certificate/course/fltqnHSHvXsBrQpNxg?certificateType=course',
   },
   {
-    source: "Interaction Design Foundation",
-    course: "UI Design Patterns for Successful Software",
+    source: 'Interaction Design Foundation',
+    course: 'UI Design Patterns for Successful Software',
     url:
-      "https://www.interaction-design.org/zachary-carlson/certificate/course/34f4e46c-aa91-4821-a5a7-5fe713f99946",
+      'https://www.interaction-design.org/zachary-carlson/certificate/course/34f4e46c-aa91-4821-a5a7-5fe713f99946',
   },
   {
-    source: "Interaction Design Foundation",
-    course: "Information Visualization",
+    source: 'Interaction Design Foundation',
+    course: 'Information Visualization',
     url:
-      "https://www.interaction-design.org/zachary-carlson/certificate/course/0cad84c9-69e6-425c-9aaa-204b2b57379d",
+      'https://www.interaction-design.org/zachary-carlson/certificate/course/0cad84c9-69e6-425c-9aaa-204b2b57379d',
   },
   {
-    source: "Interaction Design Foundation",
-    course: "Human Computer Interaction - HCI",
+    source: 'Interaction Design Foundation',
+    course: 'Human Computer Interaction - HCI',
     url:
-      "https://www.interaction-design.org/zachary-carlson/certificate/course/fltqnHSHvVXVjMLB2l?certificateType=course",
+      'https://www.interaction-design.org/zachary-carlson/certificate/course/fltqnHSHvVXVjMLB2l?certificateType=course',
   },
   {
-    source: "Udemy",
-    course: "The Complete Web Developer: Zero to Master",
+    source: 'Udemy',
+    course: 'The Complete Web Developer: Zero to Master',
     url:
-      "https://www.udemy.com/certificate/UC-022bce85-7955-41c1-b440-8ffc1bdefd97",
+      'https://www.udemy.com/certificate/UC-022bce85-7955-41c1-b440-8ffc1bdefd97',
   },
 ];
 
@@ -243,7 +243,7 @@ const SkillZone = styled.div`
 `;
 
 const ResumePage = () => {
-  let [skill, setSkill] = useState("me");
+  let [skill, setSkill] = useState('me');
 
   const handleSkillClick = (e) => {
     let cat = e.target.dataset.category;
@@ -252,31 +252,30 @@ const ResumePage = () => {
   };
 
   const handleSkillKeydown = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       handleSkillClick(e);
     }
   };
 
   const getClasses = (cat) => {
-    if (skill === "me") return;
+    if (skill === 'me') return;
 
     switch (skill) {
-      case "me":
-        return "";
+      case 'me':
+        return '';
       case cat:
-        return "highlight";
+        return 'highlight';
       default:
-        return "faded";
+        return 'faded';
     }
   };
 
   return (
     <>
-      <SEO title={"Resume"} />
+      <SEO title={'Resume'} />
 
       <Layout>
         <main id="resume-page">
-          <title>Resume</title>
           <h1>Resume</h1>
           <section>
             <h2>Skills</h2>
@@ -297,7 +296,7 @@ const ResumePage = () => {
                   data-category="dev"
                   onClick={handleSkillClick}
                   onKeyDown={handleSkillKeydown}
-                  className={getClasses("dev")}
+                  className={getClasses('dev')}
                   tabIndex="0"
                   role="button"
                 >
@@ -308,7 +307,7 @@ const ResumePage = () => {
                   data-category="designer"
                   onClick={handleSkillClick}
                   onKeyDown={handleSkillKeydown}
-                  className={getClasses("designer")}
+                  className={getClasses('designer')}
                   tabIndex="0"
                   role="button"
                 >
@@ -319,7 +318,7 @@ const ResumePage = () => {
                   data-category="writer"
                   onClick={handleSkillClick}
                   onKeyDown={handleSkillKeydown}
-                  className={getClasses("writer")}
+                  className={getClasses('writer')}
                   tabIndex="0"
                   role="button"
                 >
@@ -327,7 +326,7 @@ const ResumePage = () => {
                 </div>
               </div>
               <div className="skill-description">
-                {skill === "me" ? (
+                {skill === 'me' ? (
                   <div id="me-desc" data-category="me">
                     <span className="desc-heading">Me</span>
                     <p>
@@ -341,10 +340,10 @@ const ResumePage = () => {
                     </p>
                   </div>
                 ) : (
-                  ""
+                  ''
                 )}
 
-                {skill === "dev" ? (
+                {skill === 'dev' ? (
                   <div id="dev-desc" data-category="dev">
                     <span className="desc-heading">Developer</span>
                     <p>
@@ -361,10 +360,10 @@ const ResumePage = () => {
                     </p>
                   </div>
                 ) : (
-                  ""
+                  ''
                 )}
 
-                {skill === "designer" ? (
+                {skill === 'designer' ? (
                   <div id="designer-desc" data-category="designer">
                     <span className="desc-heading">Designer</span>
                     <p>
@@ -398,10 +397,10 @@ const ResumePage = () => {
                     </ul>
                   </div>
                 ) : (
-                  ""
+                  ''
                 )}
 
-                {skill === "writer" ? (
+                {skill === 'writer' ? (
                   <div id="writer-desc" data-category="writer">
                     <span className="desc-heading">Writer</span>
                     <p>
@@ -426,7 +425,7 @@ const ResumePage = () => {
                     </p>
                   </div>
                 ) : (
-                  ""
+                  ''
                 )}
               </div>
             </SkillZone>

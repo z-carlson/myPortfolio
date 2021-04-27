@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import React from 'react';
+import styled from 'styled-components';
+import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 
 const ContactChannelStyles = styled.div`
   color: var(--textColorDark);
@@ -28,7 +28,6 @@ const ContactChannelStyles = styled.div`
 const ContactPage = () => {
   return (
     <>
-      <SEO title="Contact" />
       <Layout>
         <main id="contact-page">
           <h1>Get in touch</h1>

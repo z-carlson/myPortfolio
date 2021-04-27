@@ -1,11 +1,12 @@
-import { Link } from "gatsby";
-import React, { useState, useContext } from "react";
-import styled from "styled-components";
-import { ThemeContext } from "../context/ThemeContext";
-import TerminalIcon from "../images/svg/terminal.svg";
-import SunIcon from "../images/svg/sun.svg";
-import MoonIcon from "../images/svg/moon.svg";
-import ToolIcon from "../images/svg/tool.svg";
+import { Link } from 'gatsby';
+import React, { useState, useContext, useEffect } from 'react';
+import styled from 'styled-components';
+import { ThemeContext } from '../context/ThemeContext';
+import TerminalIcon from '../images/svg/terminal.svg';
+import SunIcon from '../images/svg/sun.svg';
+import MoonIcon from '../images/svg/moon.svg';
+import ToolIcon from '../images/svg/settings.svg';
+import CloseIcon from '../images/svg/x-circle.svg';
 
 const ThemePicker = styled.div`
   position: absolute;
@@ -65,25 +66,8 @@ const ThemeOptions = styled.div`
     transform: translateX(-20px) translateY(60px);
   }
 
-  span {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-  }
-  span:hover {
-    cursor: pointer;
-  }
-
-  span:nth-child(1) {
-    transform: translateX(-80px);
-  }
-
-  span:nth-child(2) {
-    transform: translateX(-60px) translateY(40px);
-  }
-
-  span:nth-child(3) {
-    transform: translateX(-20px) translateY(60px);
+  button:nth-child(4) {
+    transform: translateX(-25px);
   }
 `;
 
@@ -92,7 +76,7 @@ const Header = () => {
     show: false,
     top: -100,
     right: -100,
-    transform: "scale(0)",
+    transform: 'scale(0)',
   };
 
   let [showOptions, setShown] = useState(defaultState);
@@ -100,46 +84,57 @@ const Header = () => {
   const { setTheme } = useContext(ThemeContext);
 
   function handleMouseOut() {
+    console.log('click');
+
     setShown({
-      ...showOptions,
-      transform: "scale(0)",
+      show: false,
+      transform: 'scale(0)',
       top: -100,
       right: -100,
     });
+
+    console.log(showOptions);
   }
 
   return (
     <header>
       <ThemePicker
-        onClick={() => setShown({ ...showOptions, transform: "scale(1.5)" })}
+        onClick={() =>
+          setShown({ ...showOptions, transform: 'scale(1.5)', show: true })
+        }
       >
         <button>
           <img src={ToolIcon} alt="open themes" />
         </button>
-        <ThemeOptions
-          show={showOptions.show}
-          scale={showOptions.transform}
-          top={showOptions.top}
-          right={showOptions.right}
-          onMouseLeave={handleMouseOut}
-        >
-          <button onClick={() => setTheme("light")}>
-            <img src={SunIcon} alt="light theme" />
-          </button>
-          <button onClick={() => setTheme("dark")}>
-            <img src={MoonIcon} alt="dark theme" />
-          </button>
-          <button onClick={() => setTheme("hack3r")}>
-            <img src={TerminalIcon} alt="hacker theme" />
-          </button>
-        </ThemeOptions>
+        {showOptions.show && (
+          <ThemeOptions
+            show={showOptions.show}
+            scale={showOptions.transform}
+            top={showOptions.top}
+            right={showOptions.right}
+            onMouseLeave={handleMouseOut}
+          >
+            <button onClick={() => setTheme('light')}>
+              <img src={SunIcon} alt="light theme" />
+            </button>
+            <button onClick={() => setTheme('dark')}>
+              <img src={MoonIcon} alt="dark theme" />
+            </button>
+            <button onClick={() => setTheme('hack3r')}>
+              <img src={TerminalIcon} alt="hacker theme" />
+            </button>
+            <button onClickCapture={() => handleMouseOut()}>
+              <img src={CloseIcon} alt="close options" />
+            </button>
+          </ThemeOptions>
+        )}
       </ThemePicker>
-      <Link to={"/"}>
+      <Link to={'/'}>
         <span id="me">Zachary Carlson</span>
       </Link>
       <nav>
-        <Link to={"/resume"}>Resume</Link>
-        <Link to={"/contact"}>Contact</Link>
+        <Link to={'/resume'}>Resume</Link>
+        <Link to={'/contact'}>Contact</Link>
       </nav>
     </header>
   );
