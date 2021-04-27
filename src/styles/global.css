@@ -184,6 +184,7 @@ body,
 #___gatsby,
 #gatsby-focus-wrapper {
   height: 100%;
+  overflow-x: hidden;
 }
 
 #resume-page {
@@ -201,6 +202,10 @@ body,
 @media (max-width: 720px) {
   :root {
     --baseFontSize: 90%;
+  }
+
+  body {
+    overflow-x: hidden;
   }
 
   main {
