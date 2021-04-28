@@ -235,10 +235,40 @@ const SkillZone = styled.div`
     filter: grayscale(0.5);
   }
 
-  @media (max-width: 900px) {
+  .print-only {
+    display: none;
+  }
+
+  @media screen and (max-width: 900px) {
     grid-template-columns: 1fr;
     width: 100%;
     margin-left: 0;
+  }
+
+  @media print {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+
+    margin-left: 0;
+    width: 100%;
+    color: var(--textColor);
+
+    .skill-diagram {
+      display: none;
+    }
+
+    #me-desc .desc-heading {
+      display: none;
+    }
+
+    #me-desc p:last-child {
+      display: none;
+    }
+
+    .print-only {
+      display: block;
+    }
   }
 `;
 
@@ -276,7 +306,8 @@ const ResumePage = () => {
 
       <Layout>
         <main id="resume-page">
-          <h1>Resume</h1>
+          <h1 id="my-name">Zachary Carlson</h1>
+          <h1 id="resume-heading">Resume</h1>
           <section>
             <h2>Skills</h2>
             <SkillZone>
@@ -360,7 +391,21 @@ const ResumePage = () => {
                     </p>
                   </div>
                 ) : (
-                  ''
+                  <div id="dev-desc" className="print-only" data-category="dev">
+                    <span className="desc-heading">Developer</span>
+                    <p>
+                      I am a self-taught developer who loves learning and is
+                      looking to take the next step in my development career. I
+                      was a UI/UX designer first, but I wanted to move past
+                      prototyping and start building.
+                    </p>
+                    <p>
+                      I love working with React, Gatsby, Sanity.io and good old
+                      JavaScript, HTML, and CSS. I’m looking for a role where I
+                      can collaborate closely on a team and where I can continue
+                      to learn every day.
+                    </p>
+                  </div>
                 )}
 
                 {skill === 'designer' ? (
@@ -397,7 +442,42 @@ const ResumePage = () => {
                     </ul>
                   </div>
                 ) : (
-                  ''
+                  <div
+                    id="designer-desc"
+                    className="print-only"
+                    data-category="designer"
+                  >
+                    <span className="desc-heading">Designer</span>
+                    <p>
+                      I bring a human-centered design approach to all my work.
+                      Whether I’m designing a UI, writing a help guide, or
+                      re-organizing a website, I try to understand the users and
+                      their goals, develop and iterate possible solutions, and
+                      evaluate the solution I’ve implemented.
+                    </p>
+                    <p>
+                      Some of the methods I've used to understand users and
+                      evaluate solutions include ...
+                    </p>
+                    <ul>
+                      <li>Contextual interviewing &amp; usability testing</li>
+                      <li>Card sorting &amp; tree testing studies</li>
+                      <li>
+                        Task and user analysis to develop journey maps and
+                        design personas
+                      </li>
+                      <li>Surveys &amp; focus groups</li>
+                    </ul>
+                    <p>
+                      When I'm designing prototypes and mock ups, I like to use
+                      ...
+                    </p>
+                    <ul>
+                      <li>Figma</li>
+                      <li>Adobe Illustrator and Photoshop</li>
+                      <li>Pencil and paper</li>
+                    </ul>
+                  </div>
                 )}
 
                 {skill === 'writer' ? (
@@ -425,7 +505,33 @@ const ResumePage = () => {
                     </p>
                   </div>
                 ) : (
-                  ''
+                  <div
+                    id="writer-desc"
+                    className="print-only"
+                    data-category="writer"
+                  >
+                    <span className="desc-heading">Writer</span>
+                    <p>
+                      As a technical writer and user content designer, it’s my
+                      job to simplify complex concepts and processes.
+                    </p>
+                    <p>
+                      I’ve written tutorials, how-to guides, and reference
+                      documentation and created videos and documentation
+                      websites. My favorite part of working in technical
+                      communication is acting as an advocate for the customer by
+                      pushing for cleaner, more intuitive software that calls
+                      for less external documentation.
+                    </p>
+                    <p>
+                      I treat technical communication and instructional design
+                      just like my other work. I start by understanding users
+                      and their goals then figure out the best way to help them
+                      solve their problems. Sometimes that is a short reference
+                      document or explanatory illustration or video clip, and
+                      sometimes it means petitioning for a fix in the product.
+                    </p>
+                  </div>
                 )}
               </div>
             </SkillZone>

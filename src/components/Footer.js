@@ -1,7 +1,7 @@
-import React from "react";
-import GitHubLogo from "../images/GitHub-Mark-64px.png";
-import LinkedInLogo from "../images/LI-In-Bug black.png";
-import styled from "styled-components";
+import React from 'react';
+import GitHubLogo from '../images/GitHub-Mark-64px.png';
+import LinkedInLogo from '../images/LI-In-Bug black.png';
+import styled from 'styled-components';
 
 const FooterStyles = styled.footer`
   display: flex;
@@ -13,6 +13,10 @@ const FooterStyles = styled.footer`
     max-height: 50px;
     display: block;
     margin: 0 20px;
+  }
+
+  @media print {
+    display: none;
   }
 `;
 
