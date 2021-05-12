@@ -4,6 +4,7 @@ import Layout from '../components/Layout';
 import DocProjectImage from '../images/docs template.png';
 import HangmanImage from '../images/hangman.png';
 import MemoryImage from '../images/memory.png';
+import ClaysSiteImage from '../images/clays-site-desktop.png';
 import GatsbyLogo from '../images/svg/Gatsby_Monogram.png';
 import ReactLogo from '../images/svg/React-icon.svg';
 import GraphQLLogo from '../images/svg/graphql-icon.svg';
@@ -14,12 +15,26 @@ import MDXLogo from '../images/svg/mdx.svg';
 import DefaultLogo from '../images/svg/defaultLogo.svg';
 import SEO from '../components/SEO';
 import MyFace from '../images/web-profile-bw.png';
+import SanityLogo from '../images/sanityLogo.png';
 
 const projects = [
   {
+    title: 'A Portfolio Website',
+    description:
+      "I built Dr. Clay Carlson's personal website using Gatsby and the headless CMS Sanity.io. This was a transition for Dr. Carlson away from a Weebly site. By using a CMS, Dr. Carlson can focus on updating content when he starts a new course or publishes a new paper without having to worry about the overall look of the site.",
+    tech: [
+      { tech: 'Gatsby', link: 'https://www.gatsbyjs.com/' },
+      { tech: 'React', link: 'https://reactjs.org/' },
+      { tech: 'GraphQL', link: 'https://graphql.org/' },
+      { tech: 'Sanity', link: 'https://www.sanity.io/' },
+    ],
+    liveLink: 'https://clay-carlson.netlify.app/',
+    img: ClaysSiteImage,
+  },
+  {
     title: 'Docs Site Template',
     description:
-      'After bumping into some of the limitations of the software I was using (e.g., Flare and FrameMaker), I decided to see what it would take to build docs with tools I love, like Gatsby, React, and markdown. This example documentation site was meant to be an experiment and a starting point for a real docs project. ',
+      'After bumping into some of the limitations of the software I was using (e.g., Flare and FrameMaker), I decided to see what it would take to build docs with tools I love, like Gatsby, React, and markdown. This example documentation site was meant to be an experiment and a starting point for a real docs project.',
     tech: [
       { tech: 'Gatsby', link: 'https://www.gatsbyjs.com/' },
       { tech: 'React', link: 'https://reactjs.org/' },
@@ -173,8 +188,8 @@ const ProjectImageStyle = styled.div`
   img {
     width: 95%;
     height: 95%;
-    object-position: center;
-    object-fit: cover;
+    object-position: top;
+    object-fit: contain;
   }
 
   @media (max-width: 900px) {
@@ -229,6 +244,8 @@ const IndexPage = () => {
         return HTMLLogo;
       case 'CSS':
         return CSSLogo;
+      case 'Sanity':
+        return SanityLogo;
       default:
         return DefaultLogo;
     }
@@ -288,9 +305,11 @@ const IndexPage = () => {
                     <a className="live-link" href={project.liveLink}>
                       Live Site
                     </a>
-                    <a className="source-link" href={project.codeLink}>
-                      View Source
-                    </a>
+                    {project.codeLink && (
+                      <a className="source-link" href={project.codeLink}>
+                        View Source
+                      </a>
+                    )}
                   </div>
                 </article>
               </ProjectCardStyle>
