@@ -26,7 +26,7 @@ const experience = [
   },
   {
     employer: 'Wisconsin Academy of Sciences, Arts & Letters',
-    title: 'Digial Editor Intern',
+    title: 'Digital Editor Intern',
     dates: 'June 2015 - May 2015',
   },
 ];
