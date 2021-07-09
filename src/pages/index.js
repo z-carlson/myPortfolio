@@ -266,10 +266,10 @@ const IndexPage = () => {
                 design approach to all my work by first learning about the user,
                 iterating on possible solutions, and then evaluating my success.
               </p>
-              <p>
+              {/* <p>
                 I’m looking for a web development role where I can collaborate
                 closely with a team and continue to learn every day.
-              </p>
+              </p> */}
             </div>
             <div className="my-face">
               <img src={MyFace} alt="my headshot" />
